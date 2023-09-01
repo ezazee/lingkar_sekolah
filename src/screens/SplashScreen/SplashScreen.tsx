@@ -1,7 +1,7 @@
-import {ImageBackground, Image, StyleSheet, View} from 'react-native';
+import {ImageBackground, Image, View} from 'react-native';
 import React, {useEffect} from 'react';
 import {LogoLingkar, BgSekolah} from '../../assets/images/img';
-import {WARNA} from '../../utils/theme';
+import {StyleScreen} from '../../utils/style';
 
 const SplashScreen = ({navigation}: any) => {
   useEffect(() => {
@@ -10,32 +10,15 @@ const SplashScreen = ({navigation}: any) => {
     }, 2000);
   }, [navigation]);
   return (
-    <ImageBackground source={BgSekolah} resizeMode="cover" style={s.container}>
-      <View style={s.backContainer}>
-        <Image source={LogoLingkar} style={s.imageLogo} />
+    <ImageBackground
+      source={BgSekolah}
+      resizeMode="cover"
+      style={StyleScreen.containerSplash}>
+      <View style={StyleScreen.backContainerSplash}>
+        <Image source={LogoLingkar} style={StyleScreen.imageLogoSplash} />
       </View>
     </ImageBackground>
   );
 };
-
-const s = StyleSheet.create({
-  imageLogo: {
-    width: 235,
-    height: 145,
-  },
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  backContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 500,
-    height: 500,
-    backgroundColor: WARNA.WhiteRGBA50,
-  },
-});
 
 export default SplashScreen;

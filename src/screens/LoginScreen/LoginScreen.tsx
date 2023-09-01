@@ -1,30 +1,21 @@
-import {View, Image, StyleSheet} from 'react-native';
+import {View, Image} from 'react-native';
 import React from 'react';
 import {LogoSekolah} from '../../assets/images/img';
-import {ButtonPrimary, InputText} from '../../components';
+import {MemoButtonPrimary, InputText} from '../../components';
+import {StyleScreen} from '../../utils/style';
 
 const LoginScreen = ({navigation}: any) => {
   return (
-    <View style={s.container}>
-      <Image source={LogoSekolah} style={s.imgSekolah} />
+    <View style={StyleScreen.containerLogin}>
+      <Image source={LogoSekolah} style={StyleScreen.imgSekolahLogin} />
       <InputText security={false} title="Username" placeholder="Isi Username" />
       <InputText security={true} title="Password" placeholder="Isi Password" />
-      <ButtonPrimary title="Login" onPress={() => navigation.replace('Home')} />
+      <MemoButtonPrimary
+        title="Login"
+        onPress={() => navigation.replace('Home')}
+      />
     </View>
   );
 };
-
-const s = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  imgSekolah: {
-    width: 150,
-    height: 150,
-    marginBottom: 30,
-  },
-});
 
 export default LoginScreen;

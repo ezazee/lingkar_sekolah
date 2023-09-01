@@ -1,8 +1,8 @@
 import React from 'react';
 import {HomeScreen, TaskScreen, AboutScreen, InfoScreen} from '../../screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {View, StyleSheet} from 'react-native';
-
+import {View} from 'react-native';
+import {StyleComponent} from '../../utils/style';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {WARNA, SPASI, FONT} from '../../utils/theme';
 
@@ -11,7 +11,8 @@ const Tab = createBottomTabNavigator();
 const TabNavigator: React.FC = () => {
   const renderTabIcon = (name: string, focused: boolean, color: string) => {
     return (
-      <View style={focused ? s.activeTabBackground : null}>
+      <View
+        style={focused ? StyleComponent.activeTabBackgroundNavigator : null}>
         <Icon name={name} color={focused ? WARNA.Primary : color} size={23} />
       </View>
     );
@@ -71,12 +72,5 @@ const TabNavigator: React.FC = () => {
     </Tab.Navigator>
   );
 };
-
-const s = StyleSheet.create({
-  activeTabBackground: {
-    color: WARNA.Primary,
-    borderRadius: SPASI.spasi_18 * 10,
-  },
-});
 
 export default TabNavigator;

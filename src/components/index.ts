@@ -1,14 +1,16 @@
-import {ButtonPrimary, ButtonSecondary} from './Button';
+import {MemoButtonPrimary, MemoButtonSecondary} from './Button';
 import InputText from './TextInput';
 import TabNavigator from './Navigator';
-import SliderSwiper from './Slider';
+import SliderSwiper from './Slider/Banner';
+import SliderSchedule from './Slider/Schedule';
 import FeatureBox from './Feature';
 
 export {
   InputText,
   SliderSwiper,
+  SliderSchedule,
   FeatureBox,
-  ButtonPrimary,
-  ButtonSecondary,
+  MemoButtonPrimary,
+  MemoButtonSecondary,
   TabNavigator,
 };

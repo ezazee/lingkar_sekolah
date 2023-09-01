@@ -6,10 +6,14 @@ import Ilus1 from './ilus1.png';
 import Ilus2 from './ilus2.png';
 import Ilus3 from './ilus3.png';
 import Ilus4 from './ilus4.png';
+import BannerSlide from './banner_slide.png';
+import BannerSlide2 from './banner_slide2.png';
 
 export {
   LogoLingkar,
   LogoSekolah,
+  BannerSlide,
+  BannerSlide2,
   SlideBanner,
   BgSekolah,
   Ilus1,

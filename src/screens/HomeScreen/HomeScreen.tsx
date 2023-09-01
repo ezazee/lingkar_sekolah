@@ -2,68 +2,76 @@ import {
   View,
   Text,
   ScrollView,
-  StyleSheet,
   TouchableHighlight,
   ActivityIndicator,
 } from 'react-native';
-import React, {useState, useEffect} from 'react';
-import {Userpic} from 'react-native-userpic';
-import {WARNA, FONT, SIZE, RADIUS} from '../../utils/theme';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {SliderSwiper, FeatureBox} from '../../components';
+import React, {useState} from 'react';
+import {useFocusEffect} from '@react-navigation/native';
 import axios from 'axios';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {Userpic} from 'react-native-userpic';
+import {FeatureBox, SliderSchedule, SliderSwiper} from '../../components';
+import {StyleScreen} from '../../utils/style';
+import {BannerSlide, BannerSlide2} from '../../assets/images/img';
 
 const TopBar = () => {
   const [avatarUrl, setAvatarUrl] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    async function fetchAvatar() {
-      try {
-        const response = await axios.get(
-          'https://64ee9301219b3e2873c354a9.mockapi.io/APIAvatar',
-        );
-        setAvatarUrl(response.data.avatarUrl);
-        setIsLoading(false);
-      } catch (error) {
-        console.error('Error fetching API Avatar:', error);
-        setIsLoading(false);
-      }
+  const fetchAvatar = async () => {
+    try {
+      setIsLoading(true);
+      const response = await axios.get(
+        'https://64ee9301219b3e2873c354a9.mockapi.io/APIAvatar',
+      );
+      setAvatarUrl(response.data.avatarUrl);
+    } catch (error) {
+      console.error('Error fetching API Avatar:', error);
+    } finally {
+      setIsLoading(false);
     }
-    fetchAvatar();
-  }, []);
+  };
+
+  useFocusEffect(
+    React.useCallback(() => {
+      fetchAvatar();
+    }, []),
+  );
+  console.log(avatarUrl);
 
   return (
-    <View style={s.topBar}>
+    <View style={StyleScreen.topBarHome}>
       <View>
         {isLoading ? (
-          <ActivityIndicator color={WARNA.Primary} />
+          <ActivityIndicator />
         ) : (
           <Userpic size={35} source={avatarUrl} />
         )}
       </View>
-      <View style={s.textContainer}>
-        <Text style={s.textTopBar}>Welcome</Text>
-        <Text style={s.textBotBar}>Iqbal Ali Mirza</Text>
+      <View style={StyleScreen.textContainerHome}>
+        <Text style={StyleScreen.textTopBarHome}>Welcome</Text>
+        <Text style={StyleScreen.textBotBarHome}>Iqbal Ali Mirza</Text>
       </View>
-      <TouchableHighlight style={s.iconTop}>
-        <Icon style={s.iconTop} name="notifications" size={20} color="#000" />
+      <TouchableHighlight style={StyleScreen.iconTopHome}>
+        <Icon
+          style={StyleScreen.iconTopHome}
+          name="notifications"
+          size={20}
+          color="#000"
+        />
       </TouchableHighlight>
     </View>
   );
 };
 
 const HomeScreen = () => {
-  const images = [
-    require('../../assets/images/banner_slide.png'),
-    require('../../assets/images/banner_slide2.png'),
-  ];
+  const images = [BannerSlide, BannerSlide2];
   return (
     <ScrollView>
-      <View style={s.container}>
+      <View style={StyleScreen.containerHome}>
         <TopBar />
         <SliderSwiper images={images} />
-        <View style={s.containerFeature}>
+        <View style={StyleScreen.containerFeatureHome}>
           <FeatureBox nameFeature="Presence" nameIcon="map-outline" />
           <FeatureBox nameFeature="E-Learning" nameIcon="book" />
           <FeatureBox nameFeature="Digital Wallet" nameIcon="wallet" />
@@ -73,57 +81,12 @@ const HomeScreen = () => {
           <FeatureBox nameFeature="Library" nameIcon="library" />
           <FeatureBox nameFeature="Shop" nameIcon="cart" />
         </View>
+        <View style={StyleScreen.containerScheduleHome}>
+          <SliderSchedule />
+        </View>
       </View>
     </ScrollView>
   );
 };
-
-const s = StyleSheet.create({
-  container: {
-    backgroundColor: '#F5FFF7',
-    display: 'flex',
-    flex: 1,
-  },
-  topBar: {
-    width: '100%',
-    height: 80,
-    display: 'flex',
-    paddingVertical: 25,
-    paddingHorizontal: 15,
-    flex: 1,
-    flexDirection: 'row',
-  },
-  textContainer: {
-    marginLeft: 10,
-  },
-  textTopBar: {
-    color: WARNA.Primary,
-    fontFamily: FONT.poppins_semibold,
-    fontSize: SIZE.size_12,
-  },
-  textBotBar: {
-    color: WARNA.Primary,
-    fontFamily: FONT.poppins_semibold,
-    fontSize: SIZE.size_14,
-  },
-  iconTop: {
-    marginLeft: 'auto',
-  },
-  containerFeature: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    elevation: 2,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginTop: 30,
-    width: '100%',
-    height: 210,
-    backgroundColor: WARNA.White,
-    paddingVertical: 20,
-    paddingHorizontal: 15,
-    borderTopLeftRadius: RADIUS.radius_15,
-    borderTopRightRadius: RADIUS.radius_15,
-  },
-});
 
 export default HomeScreen;
