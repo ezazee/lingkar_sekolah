@@ -37,7 +37,6 @@ const TopBar = () => {
       fetchAvatar();
     }, []),
   );
-  console.log(avatarUrl);
 
   return (
     <View style={StyleScreen.topBarHome}>
