@@ -108,35 +108,105 @@ const StyleComponent = StyleSheet.create({
   },
 
   // ~ Slider Schedule Component ~ //
-  containerSchedule: {
-    marginBottom: 15,
+  containerTopSchedule: {
+    width: '100%',
+    marginBottom: 20,
+    display: 'flex',
+    flexDirection: 'row',
   },
-  textTopSchedule: {
+  textContainerSchedule: {
+    marginLeft: 10,
+  },
+  textTopBarSchedule: {
+    color: WARNA.Primary,
     fontFamily: FONT.poppins_semibold,
+    fontSize: SIZE.size_14,
+  },
+  textBotBarSchedule: {
+    color: WARNA.Primary,
+    fontFamily: FONT.poppins_regular,
+    fontSize: SIZE.size_14,
+  },
+  containerShowAll: {
+    marginLeft: 'auto',
+  },
+  textShowAll: {
+    color: WARNA.Primary,
+    fontFamily: FONT.poppins_semibold,
+    fontSize: SIZE.size_14,
+  },
+  textBoxContainerActive: {
+    flex: 1,
+    paddingHorizontal: 10,
+    justifyContent: 'center',
+  },
+  textBoxSecondContainerActive: {
+    flex: 1,
+    paddingHorizontal: 10,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+  },
+  boxActiveSchedule: {
+    backgroundColor: WARNA.Primary,
+    width: '95%',
+    height: 71,
+    marginLeft: 7,
+    borderRadius: RADIUS.radius_4,
+  },
+  secondBoxActiveSchedule: {
+    position: 'absolute',
+    backgroundColor: WARNA.Secondary,
+    width: '100%',
+    height: 40,
+    top: 69,
+    borderBottomLeftRadius: RADIUS.radius_4,
+    borderBottomRightRadius: RADIUS.radius_4,
+  },
+  textActiveBoxBold: {
+    fontFamily: FONT.poppins_bold,
+    color: WARNA.White,
+  },
+  textActiveBoxRegular: {
+    fontFamily: FONT.poppins_regular,
+    color: WARNA.White,
+  },
+  boxNonActiveSchedule: {
+    backgroundColor: WARNA.WhiteMate,
+    width: '95%',
+    height: 71,
+    marginLeft: 7,
+    borderRadius: RADIUS.radius_4,
+  },
+  textBoxContainerNonActive: {
+    flex: 1,
+    paddingHorizontal: 10,
+    justifyContent: 'center',
+  },
+  textNonActiveBoxBold: {
+    fontFamily: FONT.poppins_bold,
     color: WARNA.Primary,
   },
-  textBotSchedule: {
+  textNonActiveBoxRegular: {
     fontFamily: FONT.poppins_regular,
     color: WARNA.Primary,
   },
-  boxActiveSchedule: {
+  secondBoxNonActiveSchedule: {
+    position: 'absolute',
+    backgroundColor: WARNA.WhiteMateDark,
+    width: '100%',
+    height: 40,
+    top: 69,
+    borderBottomLeftRadius: RADIUS.radius_4,
+    borderBottomRightRadius: RADIUS.radius_4,
+  },
+  textBoxSecondContainerNonActive: {
     flex: 1,
-    backgroundColor: WARNA.Primary,
-    width: '90%',
-    height: 100,
-    borderRadius: RADIUS.radius_10,
+    paddingHorizontal: 10,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
   },
-  secondBoxActiveSchedule: {
-    backgroundColor: WARNA.Secondary,
-    width: '90%',
-    height: 100,
-    bottom: 0,
-    borderRadius: RADIUS.radius_10,
-  },
-  activeTextBoxTop: {
-    color: WARNA.White,
-  },
-  activeTextBoxBottom: {},
   // ~ END Schedule Component ~ //
 });
 
@@ -188,13 +258,8 @@ const StyleScreen = StyleSheet.create({
     borderTopRightRadius: RADIUS.radius_15,
   },
   containerScheduleHome: {
-    display: 'flex',
-    justifyContent: 'space-between',
     elevation: 2,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
     marginTop: 10,
-    width: '100%',
     height: 210,
     backgroundColor: WARNA.White,
     paddingVertical: 20,

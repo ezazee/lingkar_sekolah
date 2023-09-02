@@ -1,25 +1,22 @@
 import {View, Text} from 'react-native';
-import React, {useState, memo} from 'react';
-import Swiper from 'react-native-swiper';
+import React, {memo} from 'react';
 import {StyleComponent} from '../../utils/style';
 
 const SliderSchedule = () => {
-  const [currentDate, setCurrentDate] = useState(new Date());
-  const options = {year: 'numeric', month: 'long', day: 'numeric'};
-  const formattedDate = currentDate.toLocaleDateString(undefined, options);
   return (
-    <View>
-      <View style={StyleComponent.containerSchedule}>
-        <Text style={StyleComponent.textTopSchedule}>Schedule</Text>
-        <Text style={StyleComponent.textBotSchedule}>{formattedDate}</Text>
+    <View style={StyleComponent.boxActiveSchedule}>
+      <View style={StyleComponent.textBoxContainerActive}>
+        <Text style={StyleComponent.textActiveBoxBold}>Matematika</Text>
+        <Text style={StyleComponent.textActiveBoxRegular}>
+          07:00 - 08:45 - Kelas XI Mipa 3
+        </Text>
       </View>
-      <Swiper style={StyleComponent.wrapper} loop={false}>
-        <View style={StyleComponent.boxActiveSchedule}>
-          <View style={StyleComponent.secondBoxActiveSchedule}>
-            <Text>sdsdsd</Text>
-          </View>
+      <View style={StyleComponent.secondBoxActiveSchedule}>
+        <View style={StyleComponent.textBoxSecondContainerActive}>
+          <Text style={StyleComponent.textActiveBoxBold}>Offline Lesson</Text>
+          <Text style={StyleComponent.textActiveBoxBold}>Ongoing</Text>
         </View>
-      </Swiper>
+      </View>
     </View>
   );
 };

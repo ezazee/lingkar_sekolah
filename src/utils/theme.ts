@@ -38,6 +38,8 @@ interface Warna {
   Grey: string;
   DarkGrey: string;
   White: string;
+  WhiteMate: string;
+  WhiteMateDark: string;
   WhiteRGBA75: string;
   WhiteRGBA50: string;
   WhiteRGBA32: string;
@@ -52,6 +54,8 @@ export const WARNA: Warna = {
   Grey: '#333333',
   DarkGrey: '#0b0b0b',
   White: '#FFFFFF',
+  WhiteMate: 'rgb(238, 238, 238)',
+  WhiteMateDark: 'rgb(221, 221, 221)',
   WhiteRGBA75: 'rgba(255,255,255,0.75)',
   WhiteRGBA50: 'rgba(255,255,255,0.50)',
   WhiteRGBA32: 'rgba(255,255,255,0.32)',
