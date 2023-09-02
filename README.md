@@ -26,12 +26,12 @@ Practice Project
 5. React
 ```
 
-## Cara Run Project
+## Initial Commit Message
 
 ```bash
-1. Clone Project
-2. npm i
-3. npm start
-4. npm run android
+1. CMP = Component Update
+2. SC = Screen Update
+3. FC = Function Update
+4. ST = State Update
+5. RV = Revision Update
 ```
-
