@@ -17,6 +17,22 @@ const SliderSchedule = () => {
           <Text style={StyleComponent.textActiveBoxBold}>Ongoing</Text>
         </View>
       </View>
+      {/* <View style={StyleComponent.boxNonActiveSchedule}>
+        <View style={StyleComponent.textBoxContainerNonActive}>
+          <Text style={StyleComponent.textNonActiveBoxBold}>Matematika</Text>
+          <Text style={StyleComponent.textNonActiveBoxRegular}>
+            07:00 - 08:45 - Kelas XI Mipa 3
+          </Text>
+        </View>
+        <View style={StyleComponent.secondBoxNonActiveSchedule}>
+          <View style={StyleComponent.textBoxSecondContainerNonActive}>
+            <Text style={StyleComponent.textNonActiveBoxBold}>
+              Offline Lesson
+            </Text>
+            <Text style={StyleComponent.textNonActiveBoxBold}>Ongoing</Text>
+          </View>
+        </View>
+      </View> */}
     </View>
   );
 };

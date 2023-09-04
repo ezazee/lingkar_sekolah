@@ -207,6 +207,54 @@ const StyleComponent = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
   },
+
+  // SlideBlog Component
+  boxBlog: {
+    marginLeft: 10,
+    width: 310,
+    height: 240,
+    backgroundColor: WARNA.White,
+    elevation: 5,
+    borderRadius: RADIUS.radius_10,
+  },
+  imageBlog: {
+    width: '100%',
+    height: '60%',
+    resizeMode: 'cover',
+    borderRadius: RADIUS.radius_10,
+  },
+  containerTextJudulBlog: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+    marginBottom: 10,
+    marginTop: 10,
+  },
+  containerTextDescBlog: {
+    paddingHorizontal: 10,
+    marginBottom: 13,
+  },
+  textJudulBlog: {
+    fontFamily: FONT.poppins_bold,
+    color: WARNA.Primary,
+    fontSize: SIZE.size_14,
+    flex: 1,
+    flexWrap: 'wrap',
+  },
+  wrapperTextJudulBlog: {
+    width: '70%',
+  },
+  textCreatedAtBlog: {
+    fontFamily: FONT.poppins_semibold,
+    color: WARNA.Primary,
+    fontSize: SIZE.size_10,
+  },
+  textDescBlog: {
+    fontFamily: FONT.poppins_regular,
+    color: WARNA.Primary,
+    fontSize: SIZE.size_12,
+  },
   // ~ END Schedule Component ~ //
 });
 
@@ -245,7 +293,7 @@ const StyleScreen = StyleSheet.create({
   containerFeatureHome: {
     display: 'flex',
     justifyContent: 'space-between',
-    elevation: 2,
+    elevation: 6,
     flexDirection: 'row',
     flexWrap: 'wrap',
     marginTop: 30,
@@ -266,6 +314,13 @@ const StyleScreen = StyleSheet.create({
     paddingHorizontal: 15,
     borderTopLeftRadius: RADIUS.radius_15,
     borderTopRightRadius: RADIUS.radius_15,
+  },
+  containerBlogHome: {
+    elevation: 2,
+    height: 300,
+    backgroundColor: WARNA.White,
+    paddingVertical: 20,
+    paddingHorizontal: 15,
   },
 
   // ~ Splash Screen ~ //

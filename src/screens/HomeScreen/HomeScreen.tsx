@@ -10,7 +10,12 @@ import {useFocusEffect} from '@react-navigation/native';
 import axios from 'axios';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Userpic} from 'react-native-userpic';
-import {FeatureBox, SliderSchedule, SliderSwiper} from '../../components';
+import {
+  FeatureBox,
+  SliderBlog,
+  SliderSchedule,
+  SliderSwiper,
+} from '../../components';
 import {StyleScreen, StyleComponent} from '../../utils/style';
 import {BannerSlide, BannerSlide2} from '../../assets/images/img';
 import {apiProfile} from '../../api';
@@ -105,6 +110,17 @@ const HomeScreen = () => {
             loop={false}>
             <SliderSchedule />
             <SliderSchedule />
+          </Swiper>
+        </View>
+        {/* Swiper Blog Component */}
+        <View style={StyleScreen.containerBlogHome}>
+          <Swiper
+            loadMinimal={true}
+            showsPagination={false}
+            style={StyleComponent.wrapper}
+            loop={false}>
+            <SliderBlog />
+            <SliderBlog />
           </Swiper>
         </View>
       </View>
