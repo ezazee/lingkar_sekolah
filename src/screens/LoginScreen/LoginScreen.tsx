@@ -3,8 +3,10 @@ import React from 'react';
 import {LogoSekolah} from '../../assets/images/img';
 import {MemoButtonPrimary, InputText} from '../../components';
 import {StyleScreen} from '../../utils/style';
+import {useNavigation} from '@react-navigation/native';
 
-const LoginScreen = ({navigation}: any) => {
+const LoginScreen: React.FC = () => {
+  const navigation = useNavigation();
   return (
     <View style={StyleScreen.containerLogin}>
       <Image source={LogoSekolah} style={StyleScreen.imgSekolahLogin} />
@@ -12,7 +14,7 @@ const LoginScreen = ({navigation}: any) => {
       <InputText security={true} title="Password" placeholder="Isi Password" />
       <MemoButtonPrimary
         title="Login"
-        onPress={() => navigation.replace('Home')}
+        onPress={() => navigation.replace('Tab')}
       />
     </View>
   );

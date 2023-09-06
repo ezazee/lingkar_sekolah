@@ -5,8 +5,10 @@ import OnboardingScreen from './OnboardingScreen/OnboardingScreen';
 import TaskScreen from './TaskScreen/TaskScreen';
 import InfoScreen from './InfoScreen/InfoScreen';
 import AboutScreen from './AboutScreen/AboutScreen';
+import ProfileScreen from './ProfileScreen/ProfileScreen';
 
 export {
+  ProfileScreen,
   LoginScreen,
   InfoScreen,
   AboutScreen,

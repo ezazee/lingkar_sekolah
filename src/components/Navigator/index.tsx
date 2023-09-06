@@ -1,5 +1,5 @@
 import React from 'react';
-import {HomeScreen, TaskScreen, AboutScreen, InfoScreen} from '../../screens';
+import {HomeScreen, TaskScreen, ProfileScreen, InfoScreen} from '../../screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {View} from 'react-native';
 import {StyleComponent} from '../../utils/style';
@@ -62,11 +62,31 @@ const TabNavigator: React.FC = () => {
         }}
       />
       <Tab.Screen
-        name="About"
-        component={AboutScreen}
+        name="Porfile"
+        component={ProfileScreen}
         options={{
           tabBarIcon: ({focused, color}) =>
-            renderTabIcon('information-circle-outline', focused, color),
+            renderTabIcon('person-circle-outline', focused, color),
+          headerStyle: {
+            backgroundColor: WARNA.Primary,
+          },
+          headerTintColor: WARNA.White,
+          headerRight: () => (
+            <Icon
+              name="ellipsis-vertical"
+              color={WARNA.White}
+              size={20}
+              style={{paddingHorizontal: 13}}
+            />
+          ),
+          headerLeft: () => (
+            <Icon
+              name="arrow-back"
+              color={WARNA.White}
+              size={20}
+              style={{marginLeft: 13}}
+            />
+          ),
         }}
       />
     </Tab.Navigator>

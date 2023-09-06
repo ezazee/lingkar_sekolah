@@ -127,5 +127,6 @@ const HomeScreen = () => {
     </ScrollView>
   );
 };
+// console.log(FeatureBox);
 
 export default HomeScreen;

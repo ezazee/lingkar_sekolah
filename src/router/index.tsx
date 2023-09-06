@@ -13,9 +13,8 @@ const Router: React.FC = () => {
     async function checkFirstLaunch() {
       try {
         const value = await AsyncStorage.getItem('isFirstLaunch');
-        if (value === null) {
+        if (value === 'true') {
           setIsFirstLaunch(true);
-          AsyncStorage.setItem('isFirstLaunch', 'false');
         } else {
           setIsFirstLaunch(false);
         }
@@ -27,7 +26,7 @@ const Router: React.FC = () => {
   }, []);
 
   return (
-    <Stack.Navigator initialRouteName={isFirstLaunch ? 'Onboarding' : 'Tab'}>
+    <Stack.Navigator initialRouteName={isFirstLaunch ? 'Onboarding' : 'Login'}>
       <Stack.Screen
         name="Tab"
         component={TabNavigator}

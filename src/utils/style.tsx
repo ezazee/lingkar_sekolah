@@ -354,7 +354,7 @@ const StyleScreen = StyleSheet.create({
     marginBottom: 30,
   },
 
-  //  ~ Onboarding Screen //
+  //  ~ Onboarding Screen ~ //
   containerOnboarding: {
     display: 'flex',
     flex: 1,
@@ -364,6 +364,113 @@ const StyleScreen = StyleSheet.create({
     width: 240,
     height: 240,
   },
-});
 
+  //  ~ Profile Screen ~ //
+  containerProfile: {
+    backgroundColor: WARNA.White,
+    display: 'flex',
+    flex: 1,
+  },
+  containerProfileViewBox: {
+    width: '100%',
+    display: 'flex',
+    paddingVertical: 28,
+    paddingHorizontal: 20,
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: WARNA.White,
+  },
+  profileHighlight: {
+    width: 500,
+    marginLeft: 20,
+  },
+  textNamaProfile: {
+    fontFamily: FONT.poppins_bold,
+    fontSize: SIZE.size_20,
+    color: WARNA.Primary,
+  },
+  textIdProfile: {
+    fontFamily: FONT.poppins_regular,
+    fontSize: SIZE.size_12,
+    color: WARNA.Primary,
+  },
+  boxKelas: {
+    width: 100,
+    marginTop: 5,
+    borderColor: WARNA.Primary,
+    borderWidth: 1,
+    borderRadius: RADIUS.radius_4,
+    paddingHorizontal: 5,
+    justifyContent: 'center',
+  },
+  textBoxKelas: {
+    fontFamily: FONT.poppins_regular,
+    color: WARNA.Primary,
+    letterSpacing: 2,
+  },
+  containerNIS: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  boxNIS1: {
+    width: '50%',
+    height: 69,
+    backgroundColor: WARNA.Primary,
+    borderWidth: 1,
+    borderRightColor: '#0b2e26',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  boxNIS2: {
+    width: '50%',
+    height: 69,
+    backgroundColor: WARNA.Primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textNIS1: {
+    fontFamily: FONT.poppins_bold,
+    color: WARNA.White,
+  },
+  textNIS2: {
+    fontFamily: FONT.poppins_regular,
+    color: WARNA.White,
+  },
+  containerListBox: {
+    marginTop: 25,
+  },
+  listItemBox: {
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+  },
+  boxStyle: {
+    width: '100%',
+    height: 45,
+    borderRadius: RADIUS.radius_10,
+    borderWidth: 0.5,
+    borderColor: WARNA.Black,
+    flex: 1,
+    flexDirection: 'row',
+    paddingHorizontal: 25,
+    alignItems: 'center',
+  },
+  textBox: {
+    paddingHorizontal: 15,
+    color: WARNA.Primary,
+    fontFamily: FONT.poppins_semibold,
+    fontSize: SIZE.size_12,
+  },
+  iconArrowRight: {
+    marginLeft: 'auto',
+  },
+  versionBox: {
+    alignItems: 'center',
+    paddingVertical: 30,
+  },
+  textVersionProfile: {
+    color: '#064d3b',
+    opacity: 100,
+    fontFamily: FONT.poppins_light,
+  },
+});
 export {StyleComponent, StyleScreen};
