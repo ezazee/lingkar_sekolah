@@ -14,8 +14,15 @@
 
 ## Tentang Project
 ---
-Practice Project
+Project Practice React Native Slicing UI, Learn Component, React Hook and many more
 
+## What has been sliced?
+```bash
+1. Onboarding Screen
+2. Login Screen
+3. Home Screen
+4. Profile Screen
+```
 ## Learning Proccess ?
 
 ```bash
