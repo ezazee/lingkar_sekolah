@@ -4,11 +4,11 @@ import {StyleComponent} from '../../utils/style';
 import {BgSekolah} from '../../assets/images/img';
 import {format} from 'date-fns';
 
-const Blog = () => {
+const Blog = ({onPress}: any) => {
   const currentDate = new Date();
   const formattedDate = format(currentDate, 'dd MMMM yyyy');
   return (
-    <TouchableOpacity style={StyleComponent.boxBlog}>
+    <TouchableOpacity onPress={onPress} style={StyleComponent.boxBlog}>
       <Image source={BgSekolah} style={StyleComponent.imageBlog} />
       <View style={StyleComponent.containerTextJudulBlog}>
         <View style={StyleComponent.wrapperTextJudulBlog}>

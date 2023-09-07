@@ -51,6 +51,26 @@ const TabNavigator: React.FC = () => {
         options={{
           tabBarIcon: ({focused, color}) =>
             renderTabIcon('calendar-clear-outline', focused, color),
+          headerStyle: {
+            backgroundColor: WARNA.Primary,
+          },
+          headerTintColor: WARNA.White,
+          headerRight: () => (
+            <Icon
+              name="ellipsis-vertical"
+              color={WARNA.White}
+              size={20}
+              style={{paddingHorizontal: 13}}
+            />
+          ),
+          headerLeft: () => (
+            <Icon
+              name="arrow-back"
+              color={WARNA.White}
+              size={20}
+              style={{marginLeft: 13}}
+            />
+          ),
         }}
       />
       <Tab.Screen
@@ -59,6 +79,26 @@ const TabNavigator: React.FC = () => {
         options={{
           tabBarIcon: ({focused, color}) =>
             renderTabIcon('chatbox-outline', focused, color),
+          headerStyle: {
+            backgroundColor: WARNA.Primary,
+          },
+          headerTintColor: WARNA.White,
+          headerRight: () => (
+            <Icon
+              name="ellipsis-vertical"
+              color={WARNA.White}
+              size={20}
+              style={{paddingHorizontal: 13}}
+            />
+          ),
+          headerLeft: () => (
+            <Icon
+              name="arrow-back"
+              color={WARNA.White}
+              size={20}
+              style={{marginLeft: 13}}
+            />
+          ),
         }}
       />
       <Tab.Screen

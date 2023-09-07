@@ -1,38 +1,75 @@
 import {View, Text} from 'react-native';
 import React, {memo} from 'react';
 import {StyleComponent} from '../../utils/style';
+import {isToday} from 'date-fns';
 
-const SliderSchedule = () => {
+interface SliderScheduleProps {
+  date: Date;
+}
+
+const SliderSchedule: React.FC<SliderScheduleProps> = ({date}) => {
+  const isActive = isToday(date);
+
   return (
-    <View style={StyleComponent.boxActiveSchedule}>
-      <View style={StyleComponent.textBoxContainerActive}>
-        <Text style={StyleComponent.textActiveBoxBold}>Matematika</Text>
-        <Text style={StyleComponent.textActiveBoxRegular}>
+    <View
+      style={
+        isActive
+          ? StyleComponent.boxActiveSchedule
+          : StyleComponent.boxNonActiveSchedule
+      }>
+      <View
+        style={
+          isActive
+            ? StyleComponent.textBoxContainerActive
+            : StyleComponent.textBoxContainerNonActive
+        }>
+        <Text
+          style={
+            isActive
+              ? StyleComponent.textActiveBoxBold
+              : StyleComponent.textNonActiveBoxBold
+          }>
+          Matematika
+        </Text>
+        <Text
+          style={
+            isActive
+              ? StyleComponent.textActiveBoxRegular
+              : StyleComponent.textNonActiveBoxRegular
+          }>
           07:00 - 08:45 - Kelas XI Mipa 3
         </Text>
       </View>
-      <View style={StyleComponent.secondBoxActiveSchedule}>
-        <View style={StyleComponent.textBoxSecondContainerActive}>
-          <Text style={StyleComponent.textActiveBoxBold}>Offline Lesson</Text>
-          <Text style={StyleComponent.textActiveBoxBold}>Ongoing</Text>
-        </View>
-      </View>
-      {/* <View style={StyleComponent.boxNonActiveSchedule}>
-        <View style={StyleComponent.textBoxContainerNonActive}>
-          <Text style={StyleComponent.textNonActiveBoxBold}>Matematika</Text>
-          <Text style={StyleComponent.textNonActiveBoxRegular}>
-            07:00 - 08:45 - Kelas XI Mipa 3
+      <View
+        style={
+          isActive
+            ? StyleComponent.secondBoxActiveSchedule
+            : StyleComponent.secondBoxNonActiveSchedule
+        }>
+        <View
+          style={
+            isActive
+              ? StyleComponent.textBoxSecondContainerActive
+              : StyleComponent.textBoxSecondContainerNonActive
+          }>
+          <Text
+            style={
+              isActive
+                ? StyleComponent.textActiveBoxBold
+                : StyleComponent.textNonActiveBoxBold
+            }>
+            Offline Lesson
+          </Text>
+          <Text
+            style={
+              isActive
+                ? StyleComponent.textActiveBoxBold
+                : StyleComponent.textNonActiveBoxBold
+            }>
+            {isActive ? 'Ongoing' : 'Upcoming'}
           </Text>
         </View>
-        <View style={StyleComponent.secondBoxNonActiveSchedule}>
-          <View style={StyleComponent.textBoxSecondContainerNonActive}>
-            <Text style={StyleComponent.textNonActiveBoxBold}>
-              Offline Lesson
-            </Text>
-            <Text style={StyleComponent.textNonActiveBoxBold}>Ongoing</Text>
-          </View>
-        </View>
-      </View> */}
+      </View>
     </View>
   );
 };

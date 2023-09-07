@@ -85,7 +85,7 @@ const ListItemProfile = ({
   );
 };
 
-const AccountScreen = () => {
+const ProfileScreen = () => {
   return (
     <ScrollView style={StyleScreen.containerProfile}>
       <ProfileViewBox />
@@ -114,4 +114,4 @@ const AccountScreen = () => {
   );
 };
 
-export default AccountScreen;
+export default ProfileScreen;

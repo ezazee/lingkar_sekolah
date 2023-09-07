@@ -18,7 +18,7 @@ import {
 } from '../../components';
 import {StyleScreen, StyleComponent} from '../../utils/style';
 import {BannerSlide, BannerSlide2} from '../../assets/images/img';
-import {apiProfile} from '../../api';
+import {apiProfile, apiSchedule} from '../../api';
 import {format} from 'date-fns';
 import Swiper from 'react-native-swiper';
 
@@ -84,6 +84,18 @@ const HomeScreen = () => {
   const currentDate = new Date();
   const formattedDate = format(currentDate, 'EEEE, dd MMMM yyyy');
   const images = [BannerSlide, BannerSlide2];
+  const [scheduleData, setScheduleData] = React.useState([]);
+
+  React.useEffect(() => {
+    axios
+      .get(apiSchedule)
+      .then(response => {
+        setScheduleData(response.data.slice(0, 7));
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
   return (
     <ScrollView>
       <View style={StyleScreen.containerHome}>
@@ -119,8 +131,8 @@ const HomeScreen = () => {
             showsPagination={false}
             style={StyleComponent.wrapper}
             loop={false}>
-            <SliderSchedule />
-            <SliderSchedule />
+            <SliderSchedule date={new Date(currentDate)} />
+            <SliderSchedule date={new Date(2023, 5, 10)} />
           </Swiper>
         </View>
         {/* Swiper Blog Component */}
