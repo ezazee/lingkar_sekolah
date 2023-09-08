@@ -3,12 +3,16 @@ import React from 'react';
 import {StyleComponent} from '../../utils/style';
 import {BgSekolah} from '../../assets/images/img';
 import {format} from 'date-fns';
+import {useNavigation} from '@react-navigation/native';
 
-const Blog = ({onPress}: any) => {
+const Blog = () => {
+  const navigation = useNavigation();
   const currentDate = new Date();
   const formattedDate = format(currentDate, 'dd MMMM yyyy');
   return (
-    <TouchableOpacity onPress={onPress} style={StyleComponent.boxBlog}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('DetailBlog')}
+      style={StyleComponent.boxBlog}>
       <Image source={BgSekolah} style={StyleComponent.imageBlog} />
       <View style={StyleComponent.containerTextJudulBlog}>
         <View style={StyleComponent.wrapperTextJudulBlog}>

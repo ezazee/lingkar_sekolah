@@ -3,6 +3,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {HomeScreen, LoginScreen, OnboardingScreen} from '../screens';
 import {TabNavigator} from '../components';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {DetailBlog} from '../stacks';
+import {WARNA} from '../utils/theme';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +49,21 @@ const Router: React.FC = () => {
         name="Home"
         component={HomeScreen}
         options={{headerShown: false, animation: 'default'}}
+      />
+      <Stack.Screen
+        name="DetailBlog"
+        component={DetailBlog}
+        options={{
+          animation: 'slide_from_right',
+          title: 'Artikel',
+          headerStyle: {
+            backgroundColor: WARNA.Primary,
+          },
+          headerTintColor: WARNA.White,
+          headerRight: () => (
+            <Icon name="ellipsis-vertical" color={WARNA.White} size={20} />
+          ),
+        }}
       />
     </Stack.Navigator>
   );

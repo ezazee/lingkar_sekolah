@@ -255,6 +255,32 @@ const StyleComponent = StyleSheet.create({
     color: WARNA.Primary,
     fontSize: SIZE.size_12,
   },
+  flatListHorizontalActive: {
+    width: 100,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: WARNA.Primary,
+    borderWidth: 1,
+    margin: 10,
+    borderRadius: RADIUS.radius_4,
+  },
+  textFlatlistActive: {
+    color: WARNA.White,
+  },
+  textFlatlistNonActive: {
+    color: WARNA.Primary,
+  },
+  flatListHorizontalNonActive: {
+    width: 100,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: WARNA.Primary,
+    borderWidth: 1,
+    margin: 10,
+    borderRadius: RADIUS.radius_4,
+  },
   // ~ END Schedule Component ~ //
 });
 
@@ -473,4 +499,64 @@ const StyleScreen = StyleSheet.create({
     fontFamily: FONT.poppins_light,
   },
 });
-export {StyleComponent, StyleScreen};
+
+const StyleStack = StyleSheet.create({
+  wrapper: {},
+  bgColorDetail: {
+    backgroundColor: WARNA.White,
+  },
+  containerDetailBlog: {
+    paddingHorizontal: 12,
+    paddingVertical: 22,
+  },
+  imageDetail: {
+    width: '100%',
+    height: 197,
+    borderRadius: RADIUS.radius_4,
+  },
+  judulTextStyle: {
+    color: WARNA.Primary,
+    fontSize: SIZE.size_18,
+    fontFamily: FONT.poppins_bold,
+    marginBottom: 7,
+  },
+  containerCategoryDate: {
+    flexDirection: 'row',
+  },
+  dateText: {
+    marginLeft: 'auto',
+    color: WARNA.Primary,
+    fontSize: SIZE.size_12,
+    fontFamily: FONT.poppins_medium,
+  },
+  wrapperCategory: {
+    width: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 5,
+    borderWidth: 1,
+    borderColor: WARNA.Primary,
+    borderRadius: RADIUS.radius_4,
+    marginBottom: 15,
+  },
+  categoryText: {
+    color: WARNA.Primary,
+    fontSize: SIZE.size_12,
+    fontFamily: FONT.poppins_regular,
+  },
+  textDesc: {
+    color: WARNA.Black,
+    fontSize: SIZE.size_12,
+    fontFamily: FONT.poppins_regular,
+    marginTop: 20,
+    letterSpacing: 1,
+  },
+  textBeritaTerkait: {
+    fontFamily: FONT.poppins_semibold,
+    fontSize: SIZE.size_20,
+    color: WARNA.Primary,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+});
+export {StyleComponent, StyleScreen, StyleStack};

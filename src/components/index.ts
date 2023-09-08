@@ -5,8 +5,12 @@ import SliderSwiper from './Slider/Banner';
 import SliderSchedule from './Slider/Schedule';
 import SliderBlog from './Slider/Blog';
 import FeatureBox from './Feature';
+import ItemListBlog from './List/ItemListBlog';
+import HorizontalFlatList from './FlatlistHorizontal';
 
 export {
+  HorizontalFlatList,
+  ItemListBlog,
   InputText,
   SliderSwiper,
   SliderSchedule,
