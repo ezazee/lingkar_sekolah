@@ -3,82 +3,48 @@ import {
   Text,
   ScrollView,
   TouchableHighlight,
-  ActivityIndicator,
+  FlatList,
 } from 'react-native';
 import React from 'react';
 import {useFocusEffect} from '@react-navigation/native';
 import axios from 'axios';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {Userpic} from 'react-native-userpic';
 import {
   FeatureBox,
   SliderBlog,
   SliderSchedule,
   SliderSwiper,
+  TopBar,
 } from '../../components';
 import {StyleScreen, StyleComponent} from '../../utils/style';
 import {BannerSlide, BannerSlide2} from '../../assets/images/img';
-import {apiProfile} from '../../api';
+import {apiBlog} from '../../api';
 import {format} from 'date-fns';
 import Swiper from 'react-native-swiper';
 
-const TopBar = () => {
-  const [userData, setUserData] = React.useState<{avatar: string}>({
-    avatar: '',
-  });
+interface BlogItem {
+  id: number;
+  nameBlog: string;
+  desc: string;
+  thumbBlog: string;
+}
 
-  const [isLoading, setIsLoading] = React.useState(true);
-
-  const fetchAvatar = async () => {
+const HomeScreen = () => {
+  const [blogData, setBlogData] = React.useState<BlogItem[]>([]);
+  const fetchDataBlog = async () => {
     try {
-      const response = await axios.get(apiProfile);
-      if (response.status === 200) {
-        const data = response.data[0];
-        setUserData(data);
-      } else {
-        console.error('Failed to fetch user data');
-      }
+      const response = await axios.get<BlogItem[]>(apiBlog);
+      setBlogData(response.data.slice(0, 7));
     } catch (error) {
-      console.error('Error fetching user data:', error);
-    } finally {
-      setIsLoading(false);
+      console.error('Error fetching blog data:', error);
     }
   };
 
   useFocusEffect(
     React.useCallback(() => {
-      fetchAvatar();
+      fetchDataBlog();
     }, []),
   );
 
-  return (
-    <View style={StyleScreen.topBarHome}>
-      <View>
-        {isLoading ? (
-          <ActivityIndicator />
-        ) : (
-          <Userpic size={35} source={{uri: userData.avatar}} />
-        )}
-      </View>
-      {userData && (
-        <View style={StyleScreen.textContainerHome}>
-          <Text style={StyleScreen.textTopBarHome}>Welcome</Text>
-          <Text style={StyleScreen.textBotBarHome}>Iqbal Ali Mirza</Text>
-        </View>
-      )}
-      <TouchableHighlight style={StyleScreen.iconTopHome}>
-        <Icon
-          style={StyleScreen.iconTopHome}
-          name="notifications"
-          size={20}
-          color="#000"
-        />
-      </TouchableHighlight>
-    </View>
-  );
-};
-
-const HomeScreen = () => {
   const currentDate = new Date();
   const formattedDate = format(currentDate, 'EEEE, dd MMMM yyyy');
   const images = [BannerSlide, BannerSlide2];
@@ -123,14 +89,19 @@ const HomeScreen = () => {
         </View>
         {/* Swiper Blog Component */}
         <View style={StyleScreen.containerBlogHome}>
-          <Swiper
-            loadMinimal={true}
-            showsPagination={false}
-            style={StyleComponent.wrapper}
-            loop={false}>
-            <SliderBlog />
-            <SliderBlog />
-          </Swiper>
+          <FlatList
+            data={blogData}
+            horizontal
+            keyExtractor={item => item.id.toString()}
+            renderItem={({item}) => (
+              <SliderBlog
+                id={item.id}
+                nameBlog={item.nameBlog}
+                desc={item.desc}
+                thumbBlog={item.thumbBlog}
+              />
+            )}
+          />
         </View>
       </View>
     </ScrollView>

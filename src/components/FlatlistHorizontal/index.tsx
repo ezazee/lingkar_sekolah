@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {TouchableOpacity, FlatList, Text} from 'react-native';
 import {StyleComponent} from '../../utils/style';
 
@@ -30,4 +30,4 @@ const HorizontalFlatList = ({data}: any) => {
   );
 };
 
-export default HorizontalFlatList;
+export default memo(HorizontalFlatList);

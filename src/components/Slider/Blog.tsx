@@ -1,24 +1,31 @@
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+// components/Blog.tsx
+
 import React from 'react';
-import {StyleComponent} from '../../utils/style';
-import {BgSekolah} from '../../assets/images/img';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {format} from 'date-fns';
 import {useNavigation} from '@react-navigation/native';
+import {StyleComponent} from '../../utils/style';
 
-const Blog = () => {
+interface BlogProps {
+  id: number;
+  nameBlog: string;
+  desc: string;
+  thumbBlog: string;
+}
+
+const Blog: React.FC<BlogProps> = ({id, nameBlog, desc, thumbBlog}) => {
   const navigation = useNavigation();
   const currentDate = new Date();
   const formattedDate = format(currentDate, 'dd MMMM yyyy');
+
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate('DetailBlog')}
+      onPress={() => navigation.navigate('DetailBlog', {blogId: id})}
       style={StyleComponent.boxBlog}>
-      <Image source={BgSekolah} style={StyleComponent.imageBlog} />
+      <Image source={{uri: thumbBlog}} style={StyleComponent.imageBlog} />
       <View style={StyleComponent.containerTextJudulBlog}>
         <View style={StyleComponent.wrapperTextJudulBlog}>
-          <Text style={StyleComponent.textJudulBlog}>
-            Anak-Anak Sekolah Mengeluh Soal Sekolah Online
-          </Text>
+          <Text style={StyleComponent.textJudulBlog}>{nameBlog}</Text>
         </View>
         <Text style={StyleComponent.textCreatedAtBlog}>{formattedDate}</Text>
       </View>
@@ -27,8 +34,7 @@ const Blog = () => {
           style={StyleComponent.textDescBlog}
           numberOfLines={3}
           ellipsizeMode="tail">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-          aperiam deserunt aperiam deserunt
+          {desc}
         </Text>
       </View>
     </TouchableOpacity>

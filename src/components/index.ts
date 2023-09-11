@@ -7,8 +7,10 @@ import SliderBlog from './Slider/Blog';
 import FeatureBox from './Feature';
 import ItemListBlog from './List/ItemListBlog';
 import HorizontalFlatList from './FlatlistHorizontal';
+import TopBar from './topBarHome';
 
 export {
+  TopBar,
   HorizontalFlatList,
   ItemListBlog,
   InputText,
