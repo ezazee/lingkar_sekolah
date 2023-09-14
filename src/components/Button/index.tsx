@@ -1,12 +1,16 @@
 import React, {memo} from 'react';
 import {TouchableOpacity, Text, View} from 'react-native';
-import {StyleComponent} from '../../utils/style';
+import s from '../../utils/tailwind';
 
 const ButtonPrimary = ({title, onPress}: {title: string; onPress: any}) => {
   return (
-    <View style={StyleComponent.containerBtn}>
-      <TouchableOpacity style={StyleComponent.buttonPrimary} onPress={onPress}>
-        <Text style={StyleComponent.buttonText}>{title}</Text>
+    <View style={s`flex w-55`}>
+      <TouchableOpacity
+        style={s`items-center bg-primary p-2 rounded-md`}
+        onPress={onPress}>
+        <Text style={s`text-white text-center font-medium text-base`}>
+          {title}
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -14,8 +18,12 @@ const ButtonPrimary = ({title, onPress}: {title: string; onPress: any}) => {
 
 const ButtonSecondary = ({title, onPress}: {title: string; onPress: any}) => {
   return (
-    <TouchableOpacity style={StyleComponent.buttonSecondary} onPress={onPress}>
-      <Text style={StyleComponent.buttonText}>{title}</Text>
+    <TouchableOpacity
+      style={s`items-center bg-secondary p-2 rounded-md`}
+      onPress={onPress}>
+      <Text style={s`text-white text-center font-medium text-base`}>
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 };

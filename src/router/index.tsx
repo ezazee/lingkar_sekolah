@@ -29,7 +29,8 @@ const Router: React.FC = () => {
   }, []);
 
   return (
-    <Stack.Navigator initialRouteName={isFirstLaunch ? 'Onboarding' : 'Login'}>
+    <Stack.Navigator
+      initialRouteName={isFirstLaunch ? 'Onboarding' : 'Onboarding'}>
       <Stack.Screen
         name="Tab"
         component={TabNavigator}

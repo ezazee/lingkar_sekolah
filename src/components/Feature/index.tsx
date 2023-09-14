@@ -1,8 +1,7 @@
 import {TouchableOpacity, Text} from 'react-native';
 import React, {memo} from 'react';
-import {WARNA} from '../../utils/theme';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {StyleComponent} from '../../utils/style';
+import s from '../../utils/tailwind';
 
 const Feature = ({
   nameIcon,
@@ -12,14 +11,18 @@ const Feature = ({
   nameFeature: string;
 }) => {
   return (
-    <TouchableOpacity style={StyleComponent.boxFeature}>
+    <TouchableOpacity
+      style={s`w-18 h-18 aspect-square bg-white justify-center items-center rounded-md mb-5 shadow`}>
       <Icon
-        style={StyleComponent.iconBoxFeature}
+        style={s`flex-1 justify-center items-center text-grey mt-2 mb-2 text-xl`}
         name={nameIcon}
         size={30}
-        color={WARNA.Black}
+        color="#000"
       />
-      <Text style={StyleComponent.textBoxFeature}>{nameFeature}</Text>
+      <Text
+        style={s`flex-1 justify-center items-center text-grey font-light text-xs`}>
+        {nameFeature}
+      </Text>
     </TouchableOpacity>
   );
 };

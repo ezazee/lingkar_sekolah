@@ -2,18 +2,16 @@ import React from 'react';
 import {HomeScreen, TaskScreen, ProfileScreen, InfoScreen} from '../../screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {View} from 'react-native';
-import {StyleComponent} from '../../utils/style';
+import s from '../../utils/tailwind';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {WARNA, SPASI, FONT} from '../../utils/theme';
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator: React.FC = () => {
   const renderTabIcon = (name: string, focused: boolean, color: string) => {
     return (
-      <View
-        style={focused ? StyleComponent.activeTabBackgroundNavigator : null}>
-        <Icon name={name} color={focused ? WARNA.Primary : color} size={23} />
+      <View style={[s`${focused ? 'text-primary' : ''}`]}>
+        <Icon name={name} color={focused ? '#064D3B' : color} size={23} />
       </View>
     );
   };
@@ -22,20 +20,10 @@ const TabNavigator: React.FC = () => {
     <Tab.Navigator
       initialRouteName="Onboarding"
       screenOptions={{
-        headerShown: false,
         tabBarHideOnKeyboard: true,
-        tabBarActiveTintColor: WARNA.Primary,
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontFamily: FONT.poppins_regular,
-          height: SPASI.spasi_24,
-        },
-        tabBarStyle: {
-          borderTopWidth: 0,
-          height: SPASI.spasi_10 * 6,
-          borderTopRightRadius: 20,
-          borderTopLeftRadius: 20,
-        },
+        tabBarActiveTintColor: '#064D3B',
+        tabBarLabelStyle: s`text-sm font-bold h-10`,
+        tabBarStyle: s`border-t-0 h-20 shadow-lg rounded-t-2xl`,
       }}>
       <Tab.Screen
         name="Home"
@@ -63,7 +51,7 @@ const TabNavigator: React.FC = () => {
         }}
       />
       <Tab.Screen
-        name="Porfile"
+        name="Profile"
         component={ProfileScreen}
         options={{
           tabBarIcon: ({focused, color}) =>
